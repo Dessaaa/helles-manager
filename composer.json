@@ -1,0 +1,26 @@
+{
+    "name": "tresyz/helles-manager",
+    "description": "",
+    "authors": [
+        {
+            "name": "Henrique Boaventura",
+            "email": "hboaventura@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/controllers",
+            "src/seeds",
+            "src/views"
+        ],
+        "psr-0": {
+            "Tresyz\\HellesManager\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
