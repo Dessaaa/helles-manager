@@ -37,9 +37,24 @@ class HellesManagerServiceProvider extends ServiceProvider {
     $this->app['admin.remove.user'] = $this->app->share(function() {
       return new Commands\RemoveUser();
     });
+    $this->app['admin.scaffold'] = $this->app->share(function($app) {
+      $generator = new \Way\Generators\Generators\ResourceGenerator($app['files']);
+      $cache = new \Way\Generators\Cache($app['files']);
+
+      return new Commands\Scaffold($generator, $cache);
+    });
+
+    $this->app['admin.generate.view'] = $this->app->share(function($app) {
+      $cache = new \Way\Generators\Cache($app['files']);
+      $generator = new \Tresyz\HellesManager\Generators\ViewGenerator($app['files'], $cache);
+
+      return new Commands\ViewGenerator($generator);
+    });
 
     $this->commands('admin.add.user');
     $this->commands('admin.remove.user');
+    $this->commands('admin.scaffold');
+    $this->commands('admin.generate.view');
 	}
 
 	/**

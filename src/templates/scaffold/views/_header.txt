@@ -1,0 +1,10 @@
+<div>
+  <hr>
+  <ul class="breadcrumb">
+    <li>{{ link_to_route('admin.dashboard', 'Home') }}</li>
+    <li>{{ link_to_route('admin.{{models}}.index', '{{Model}}') }}</li>
+  </ul>
+  <hr>
+</div> 
+
+{{ Notification::showAll() }}
