@@ -14,7 +14,6 @@
         "edvinaskrucas/notification": "2.*",
         "way/generators": "1.*",
         "laravelbook/ardent": "dev-master",
-        "barryvdh/laravel-debugbar": "dev-master",
         "way/database": "dev-master"
     },
     "autoload": {
