@@ -55,7 +55,7 @@ class AddUser extends Command {
       $password = $this->secret('Password: ');
     }
     if(!$group) {
-      $group = $this->secret('Group: ');
+      $group = $this->ask('Group: ');
     }
 
     try {
