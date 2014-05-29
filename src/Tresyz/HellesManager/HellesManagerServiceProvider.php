@@ -31,8 +31,9 @@ class HellesManagerServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-    $generator = new \Way\Generators\Generators\ResourceGenerator($this->app['files']);
     $cache = new \Way\Generators\Cache($this->app['files']);
+    $resource_generator = new \Way\Generators\Generators\ResourceGenerator($this->app['files']);
+    $view_generator = new \Way\Generators\Generators\ViewGenerator($this->app['files'], $cache);
 
     $this->app['admin.add.user'] = $this->app->share(function() {
       return new Commands\AddUser();
@@ -40,14 +41,13 @@ class HellesManagerServiceProvider extends ServiceProvider {
     $this->app['admin.remove.user'] = $this->app->share(function() {
       return new Commands\RemoveUser();
     });
-    $this->app['admin.scaffold'] = $this->app->share(function() use($generator, $cache) {
+    $this->app['admin.scaffold'] = $this->app->share(function() use($resource_generator, $cache) {
         
-      return new Commands\Scaffold($generator, $cache);
+      return new Commands\Scaffold($resource_generator, $cache);
     });
 
-    $this->app['admin.generate.view'] = $this->app->share(function() use ($generator) {
-
-      return new Commands\ViewGenerator($generator);
+    $this->app['admin.generate.view'] = $this->app->share(function() use($view_generator) {
+      return new Commands\ViewGenerator($view_generator);
     });
     
     $this->commands('admin.add.user');
