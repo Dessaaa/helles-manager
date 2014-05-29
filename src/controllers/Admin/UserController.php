@@ -12,7 +12,6 @@ class UserController extends BaseAdminController {
 	public function index()
 	{
     $users = \Sentry::findAllUsers();
-    \Debugbar::info($users);
 
     $this->layout->content = \View::make('helles-manager::admin.user.index', compact('users'));
 	}
