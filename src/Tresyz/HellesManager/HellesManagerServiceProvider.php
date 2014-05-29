@@ -33,7 +33,7 @@ class HellesManagerServiceProvider extends ServiceProvider {
 	{
     $cache = new \Way\Generators\Cache($this->app['files']);
     $resource_generator = new \Way\Generators\Generators\ResourceGenerator($this->app['files']);
-    $view_generator = new \Way\Generators\Generators\ViewGenerator($this->app['files'], $cache);
+    $view_generator = new \Tresyz\HellesManager\Generators\ViewGenerator($this->app['files'], $cache);
 
     $this->app['admin.add.user'] = $this->app->share(function() {
       return new Commands\AddUser();
