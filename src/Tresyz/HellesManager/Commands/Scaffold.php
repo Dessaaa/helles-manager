@@ -166,31 +166,35 @@ class Scaffold extends \Way\Generators\Commands\ScaffoldGeneratorCommand {
     $name = strtolower(Pluralizer::plural($name));
 
     if(!\File::exists('app/views/admin/templates/_menu.blade.php')) {
-      if(!\File::exists('app/views/admin/')) {
-        \File::makeDirectory('app/views/admin/');
-      }
-      if(!\File::exists('app/views/admin/templates')) {
-        \File::makeDirectory('app/views/admin/templates');
-      }
-
       $menu = \File::get(__DIR__ . '/../../../views/admin/templates/_menu.blade.php');
       $menu = str_replace('</ul>', '', $menu);
+    } else {
+      $menu = \File::get('app/views/admin/templates/_menu.blade.php');
+      $menu = str_replace('</ul>', '', $menu);
+    }
+    if(!\File::exists('app/views/admin/')) {
+      \File::makeDirectory('app/views/admin/');
+    }
+    if(!\File::exists('app/views/admin/templates')) {
+      \File::makeDirectory('app/views/admin/templates');
+    }
 
-      $label = ucwords($name);
+    
 
-      $menu.= <<<EOT
-  <li @if(Route::currentRouteName() == 'admin.$name') class="active" @endif>
-    {{ HTML::decode(link_to_route('admin.$name.index', '<i class="fa fa-cog icon"></i><span class="hidden-tablet"> $label</span>')) }}
-  </li>
+    $label = ucwords($name);
+
+    $menu.= <<<EOT
+<li @if(Route::currentRouteName() == 'admin.$name') class="active" @endif>
+  {{ HTML::decode(link_to_route('admin.$name.index', '<i class="fa fa-cog icon"></i><span class="hidden-tablet"> $label</span>')) }}
+</li>
 EOT;
 
-      $menu.= "\n</ul>";
+    $menu.= "\n</ul>";
 
-      \File::put(
-        'app/views/admin/templates/_menu.blade.php',
-        $menu
-      );
-    }
+    \File::put(
+      'app/views/admin/templates/_menu.blade.php',
+      $menu
+    );
 
   }
 
