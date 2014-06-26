@@ -99,7 +99,7 @@ class {{className}} extends Admin\BaseAdminController {
      */
     public function update($id)
     {
-        $obj = $this->institution->find($id);
+        $obj = $this->{{model}}->find($id);
         $obj->fill(array_except(\Input::all(), '_method'));
 
         if ($obj->save()) {
