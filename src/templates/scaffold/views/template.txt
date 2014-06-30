@@ -3,7 +3,7 @@
 <head>
   
   <meta charset="utf-8">
-  <title>Helles - Manager</title>
+  <title>{{ $title }}</title>
   <meta name="description" content="Helles - Manager">
   <meta name="author" content="Henrique Boaventura">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -131,7 +131,7 @@
 
       <footer>
         <p>
-          <span style="text-align:left;float:right">&copy; <?php echo date('Y') ?> - 3yz.</span>
+          <span style="text-align:left;float:right">&copy; <?php echo date('Y') ?> - {{ $company }}.</span>
         </p>
       </footer>
       @endif

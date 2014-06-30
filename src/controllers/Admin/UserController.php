@@ -65,13 +65,13 @@ class UserController extends BaseAdminController {
         unset($input['group_id']);     
         $user = \Sentry::createUser($input);
         if($user) {
+          $adminGroup = \Sentry::findGroupById($group_id);
+          $user->addGroup($adminGroup);
+
           \Notification::success('Usuário adicionado com sucesso!');
           return \Redirect::route('admin.user.index');
         }
-      }
-
-      $adminGroup = Sentry::findGroupById($group_id);
-      $user->addGroup($adminGroup);
+      }      
     } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
       echo 'Login field is required.';
     } catch (Cartalyst\Sentry\Users\PasswordRequiredException $e) {
@@ -144,7 +144,7 @@ class UserController extends BaseAdminController {
         }
         //get groups
         foreach($user->getGroups() as $group) {
-          $user->removeGroup($group->id);
+          $user->removeGroup($group);
         }
 
         $group = \Sentry::findGroupById($input['group_id']);

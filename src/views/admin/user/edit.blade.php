@@ -22,7 +22,7 @@
         </div> -->
       </div>
       <div class="box-content">
-        {{ Form::model($user, array('route' => 'admin.user.update', 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data')) }}
+        {{ Form::model($user, array('method' => 'PATCH', 'route' => array('admin.user.update', $user->id), 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data')) }}
         <fieldset class="col-sm-12">  
           @include('helles-manager::admin.user._form')
           <div class="form-actions">
