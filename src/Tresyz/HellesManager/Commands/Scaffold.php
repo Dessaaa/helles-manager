@@ -181,11 +181,12 @@ class Scaffold extends \Way\Generators\Commands\ScaffoldGeneratorCommand {
 
     
 
-    $label = ucwords($name);
+    $label = $this->option('menu_name') ?: ucwords($name);
+    $icon = $this->option('menu_icon') ?: 'fa-cog';
 
     $menu.= <<<EOT
 <li @if(Route::currentRouteName() == 'admin.$name') class="active" @endif>
-  {{ HTML::decode(link_to_route('admin.$name.index', '<i class="fa fa-cog icon"></i><span class="hidden-tablet"> $label</span>')) }}
+  {{ HTML::decode(link_to_route('admin.$name.index', '<i class="fa $icon icon"></i><span class="hidden-tablet"> $label</span>')) }}
 </li>
 EOT;
 
@@ -196,6 +197,15 @@ EOT;
       $menu
     );
 
+  }
+
+  protected function getOptions()
+  {
+    $options = parent::getOptions();
+    $options[] = array('menu_name', null, InputOption::VALUE_OPTIONAL, 'Menu name', null);
+    $options[] = array('menu_icon', null, InputOption::VALUE_OPTIONAL, 'Menu icon', null);
+
+    return $options;
   }
 
 }
