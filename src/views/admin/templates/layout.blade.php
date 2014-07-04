@@ -171,6 +171,7 @@
   {{ HTML::script('packages/tresyz/helles-manager/js/jquery.placeholder.min.js') }}
   {{ HTML::script('packages/tresyz/helles-manager/js/default.min.js') }}
   {{ HTML::script('packages/tresyz/helles-manager/js/core.min.js') }}
+  {{ HTML::script('packages/tresyz/helles-manager/js/tinymce/tinymce.min.js') }}
   {{ HTML::script('packages/tresyz/helles-manager/js/manager.js') }}
   <!-- {{ HTML::script('packages/tresyz/helles-manager/js/pages/index.js') }} -->
   

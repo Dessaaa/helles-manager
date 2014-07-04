@@ -35,10 +35,68 @@ $(document).ready(function(){
   });
 
   /* ---------- Text editor ---------- */
-  $('.cleditor').cleditor();
+  if($('.richtext')) {
+
+    tinymce.init({
+          relative_urls : false,
+          language : 'pt_BR',
+          selector: ".richtext",
+          height: 250,
+          plugins: [
+              "advlist autolink lists link image charmap print preview anchor",
+              "searchreplace visualblocks code fullscreen",
+              "insertdatetime media table contextmenu paste"
+          ],
+          toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+          // image_advtab: true ,
+
+          // external_filemanager_path:"/link_to_filemanager/filemanager/",
+          // filemanager_title:"Responsive Filemanager" ,
+          // external_plugins: { "filemanager" : "/link_to_filemanager/filemanager/plugin.min.js"},
+          // filemanager_access_key: '587456b6c8867531647f9e9c368c285a'
+        });
+
+    $('form').bind('form-pre-serialize', function(e) {
+        tinyMCE.triggerSave();
+    });
+
+  }
 
   /* ---------- Datapicker ---------- */
-  $('.date-picker').datepicker();
+  // $.datepicker.regional['pt-BR'] = {
+  //   closeText: 'Fechar',
+  //   prevText: '&#x3c;Anterior',
+  //   nextText: 'Pr&oacute;ximo&#x3e;',
+  //   currentText: 'Hoje',
+  //   monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho',
+  //   'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+  //   monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun',
+  //   'Jul','Ago','Set','Out','Nov','Dez'],
+  //   dayNames: ['Domingo','Segunda-feira','Ter&ccedil;a-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sabado'],
+  //   dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'],
+  //   dayNamesMin: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'],
+  //   weekHeader: 'Sm',
+  //   dateFormat: 'dd/mm/yy',
+  //   firstDay: 0,
+  //   isRTL: false,
+  //   showMonthAfterYear: false,
+  //   yearSuffix: ''
+  // };
+  // $.datepicker.setDefaults($.datepicker.regional['pt-BR']);
+
+  $.fn.datepicker.dates['pt-BR'] = {
+    days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
+    daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
+    daysMin: ["Do", "Se", "Te", "Qu", "Qu", "Se", "Sa", "Do"],
+    months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+    monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+    today: "Hoje",
+    clear: "Limpar"
+  };
+  $('.datepicker').datepicker({
+    language: 'pt-BR',
+    weekStart: 1
+  });
 
   /* ---------- Choosen ---------- */
   $('[data-rel="chosen"],[rel="chosen"]').chosen();
@@ -53,7 +111,7 @@ $(document).ready(function(){
   $(".date-mask").mask("99/99/9999");
   
   $.mask.definitions['~']='[+-]';
-  $("#eyescript").mask("~9.99 ~9.99 999");
+  $(".eyescript").mask("~9.99 ~9.99 999");
   
   /* ---------- Textarea with limits ---------- */
   $('#limit').inputlimiter({
@@ -64,15 +122,12 @@ $(document).ready(function(){
   });
   
   /* ---------- Timepicker for Bootstrap ---------- */
-  $('#timepicker1').timepicker();
+  $('.timepicker').timepicker();
   
   /* ---------- DateRangepicker for Bootstrap ---------- */
-  $('#daterange').daterangepicker();
-  
-  /* ---------- Bootstrap Wysiwig ---------- */
-  $('.editor').wysiwyg();
+  $('.daterange').daterangepicker();
   
   /* ---------- Colorpicker for Bootstrap ---------- */
-  $('#colorpicker1').colorpicker();
+  $('.colorpicker').colorpicker();
 
 });
