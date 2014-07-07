@@ -43,7 +43,7 @@ $(document).ready(function(){
   actions.bind_delete();
 
   /* ---------- Text editor ---------- */
-  if($('.richtext')) {
+  if($('.richtext').length) {
 
     tinymce.init({
           relative_urls : false,
