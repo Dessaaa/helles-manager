@@ -1,3 +1,12 @@
+var actions = {
+  bind_delete: function() {
+    $('.delete').on('click', function(e){
+      e.preventDefault();
+      $('#delete-form').attr('action', $(this).attr('href'));
+      $('#delete-modal').modal('show');
+    });
+  }
+}
 $(document).ready(function(){
   /* ---------- Datable ---------- */
   if($('.datatable')) {
@@ -25,14 +34,13 @@ $(document).ready(function(){
         "sPrevious": "Anterior",
         "sNext": "Próxima"
       }
+    },
+    "fnDrawCallback": function() {
+      actions.bind_delete();
     }
   });
 
-   $('.delete').click(function(e){
-    e.preventDefault();
-    $('#delete-form').attr('action', $(this).attr('href'));
-    $('#delete-modal').modal('show');
-  });
+  actions.bind_delete();
 
   /* ---------- Text editor ---------- */
   if($('.richtext')) {
