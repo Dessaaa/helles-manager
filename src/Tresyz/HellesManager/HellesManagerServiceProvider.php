@@ -38,6 +38,9 @@ class HellesManagerServiceProvider extends ServiceProvider {
     $this->app['admin.add.user'] = $this->app->share(function() {
       return new Commands\AddUser();
     });
+    $this->app['admin.install'] = $this->app->share(function() {
+      return new Commands\Install();
+    });
     $this->app['admin.remove.user'] = $this->app->share(function() {
       return new Commands\RemoveUser();
     });

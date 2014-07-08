@@ -4,7 +4,7 @@ class ManagerTableSeeder extends Seeder {
   public function run()
   {
     Eloquent::unguard();
-    DB::table('groups')->delete();
+    DB::table('groups')->truncate();
 
     Sentry::getGroupProvider()->create(array(
       'name'        => 'Admin',
@@ -14,8 +14,7 @@ class ManagerTableSeeder extends Seeder {
     ));
     Sentry::getGroupProvider()->create(array(
       'name'        => 'Manager',
-      'permissions' => array(
-      ),
+      'permissions' => array(),
     ));
     $this->command->info('Managers tables seeded!');
   }
