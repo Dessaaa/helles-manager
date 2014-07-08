@@ -43,7 +43,7 @@ class Install extends Command {
     $this->info('- Migrate Sentry');
     $this->call('migrate', array('--package' => 'cartalyst/sentry'));
     $this->info('- Publish manager assets');
-    $this->call('asset:publish', array('argument' => 'tresyz/helles-manager'));
+    $this->call('asset:publish', array('tresyz/helles-manager'));
     $this->info('- Seeding the manager tables');
     $this->call('db:seed', array('--class' => 'ManagerTableSeeder'));
     if($this->option('add-user') !== FALSE) {
