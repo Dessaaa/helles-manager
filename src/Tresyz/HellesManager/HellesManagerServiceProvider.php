@@ -53,6 +53,7 @@ class HellesManagerServiceProvider extends ServiceProvider {
       return new Commands\ViewGenerator($view_generator);
     });
     
+    $this->commands('admin.install');
     $this->commands('admin.add.user');
     $this->commands('admin.remove.user');
     $this->commands('admin.scaffold');
