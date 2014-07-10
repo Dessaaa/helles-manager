@@ -37,7 +37,7 @@
   <div class="form-group {{$errors->has('group_id') ? 'has-error' : ''}}">
     {{ Form::label('group_id', 'Grupo', array('class' => 'col-sm-2 control-label')) }}
     <div class="col-sm-3">
-      {{ Form::select('group_id', $groups, NULL, array('class' => 'form-control')) }}
+      {{ Form::select('group_id', $groups, ((get_class($user) != 'User') ? $user->getGroups()->first()->id : NULL), array('class' => 'form-control')) }}
       <small class="help-block">Campo obrigatório.</small> 
     </div>
   </div>
@@ -45,7 +45,7 @@
     {{ Form::label('activated', 'Ativo?', array('class' => 'col-sm-2 control-label')) }}
     <div class="col-sm-10">
       <label class="radio">
-        {{ Form::radio('activated', 1, NULL, array('class' => '')) }}
+        {{ Form::radio('activated', 1, ($user->exists ? $user->active : TRUE), array('class' => '')) }}
         Sim
       </label>
       <div style="clear:both"></div>

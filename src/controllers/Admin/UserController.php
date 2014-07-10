@@ -4,6 +4,11 @@ use LaravelBook\Ardent\Ardent;
 
 class UserController extends BaseAdminController {
 
+  public function __construct()
+  {
+    $this->beforeFilter('is_admin');
+  }
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -91,7 +96,9 @@ class UserController extends BaseAdminController {
 	 */
 	public function edit($id)
 	{
-    $user = \User::find($id);
+    // $user = \User::find($id);
+    $user = \Sentry::findUserByID($id);
+    // $user_group = /
     $groups = \Sentry::findAllGroups();
     $ar_groups = array();
     foreach($groups as $group) {

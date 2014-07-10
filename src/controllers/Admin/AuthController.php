@@ -8,8 +8,6 @@
     {
       Sentry::logout();
 
-      // var_dump($this->layout);die;
-      
       $this->layout->content = \View::make('helles-manager::admin.auth.login');
     }
 

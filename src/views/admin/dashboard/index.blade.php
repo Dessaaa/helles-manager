@@ -13,6 +13,8 @@
   <hr>
 </div>
 
+{{ Notification::showAll() }}
+
 <div class="jumbotron">
   <h1>Dashboard</h1>
   <p>Olá <strong>{{ $user = Sentry::getUser()->first_name }} {{ $user = Sentry::getUser()->last_name }}</strong>! Seja bem-vindo ao sistema de gerenciamento do site.</p>  
