@@ -102,7 +102,7 @@ $(document).ready(function(){
   $(".eyescript").mask("~9.99 ~9.99 999");
   
   /* ---------- Textarea with limits ---------- */
-  $('#limit').inputlimiter({
+  $('.limit_text').inputlimiter({
     limit: 10,
     limitBy: 'words',
     remText: 'Você tem %n word%s palavras restantes...',
