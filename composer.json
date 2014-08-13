@@ -10,7 +10,7 @@
     "require": {
         "php": ">=5.3.0",
         "cartalyst/sentry": "2.1.*",
-        "edvinaskrucas/notification": "2.*",
+        "edvinaskrucas/notification": "3.*",
         "way/generators": "1.*",
         "laravelbook/ardent": "dev-master",
         "way/database": "dev-master"
