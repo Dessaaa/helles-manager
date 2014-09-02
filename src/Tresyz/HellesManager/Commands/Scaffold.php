@@ -119,6 +119,11 @@ class Scaffold extends \Way\Generators\Commands\ScaffoldGeneratorCommand {
         );
   }
 
+  protected function getModelTemplatePath()
+  {
+      return __DIR__.'/../../../templates/scaffold/model.txt';
+  }
+
   /**
    * Get the path to the template for a controller.
    *
