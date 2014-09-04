@@ -88,7 +88,7 @@ class Scaffold extends \Way\Generators\Commands\ScaffoldGeneratorCommand {
 
     $viewsDir = app_path().'/views/admin';
     $container = $viewsDir . '/' . Pluralizer::plural($this->model);
-    $layouts = $viewsDir . '/layouts';
+    $layouts = $viewsDir . '/templates';
     $views = array('index', 'show', 'create', 'edit', '_form', '_header');
 
     $this->generator->folders(
@@ -96,7 +96,7 @@ class Scaffold extends \Way\Generators\Commands\ScaffoldGeneratorCommand {
     );
 
     // If generating a scaffold, we also need views/layouts/scaffold
-    $views[] = 'template';
+    $views[] = 'layout';
     $this->generator->folders($layouts);
 
     // Let's filter through all of our needed views
