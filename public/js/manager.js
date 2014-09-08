@@ -81,7 +81,7 @@ $(document).ready(function(){
     clear: "Limpar"
   };
   $('.datepicker').datepicker({
-    format: 'mm/dd/yyyy',
+    format: 'dd/mm/yyyy',
     language: 'pt-BR',
     weekStart: 1
   });
