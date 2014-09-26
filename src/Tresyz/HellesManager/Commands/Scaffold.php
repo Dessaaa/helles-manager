@@ -102,7 +102,7 @@ class Scaffold extends \Way\Generators\Commands\ScaffoldGeneratorCommand {
     // Let's filter through all of our needed views
     // and create each one.
     foreach($views as $view) {
-      $path = $view === 'template' ? $layouts : $container;
+      $path = $view === 'layout' ? $layouts : $container;
       $this->generateView($view, $path);
     }
   }
