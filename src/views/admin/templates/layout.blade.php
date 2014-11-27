@@ -173,7 +173,6 @@
   {{ HTML::script('packages/tresyz/helles-manager/js/core.min.js') }}
   {{ HTML::script('packages/tresyz/helles-manager/js/tinymce/tinymce.min.js') }}
   {{ HTML::script('packages/tresyz/helles-manager/js/manager.js') }}
-  <!-- {{ HTML::script('packages/tresyz/helles-manager/js/pages/index.js') }} -->
   
 </body>
 </html>
