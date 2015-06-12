@@ -57,8 +57,8 @@ class ViewGenerator extends Generator {
 
         // And finally create the table rows
         list($headings, $fields, $editAndDeleteLinks) = $this->makeTableRows($model);
-        $this->template = str_replace('{{headings}}', implode(PHP_EOL."\t\t\t\t", $headings), $this->template);
-        $this->template = str_replace('{{fields}}', implode(PHP_EOL."\t\t\t\t\t", $fields) . PHP_EOL . $editAndDeleteLinks, $this->template);
+        $this->template = str_replace('{{headings}}', implode(PHP_EOL."              ", $headings), $this->template);
+        $this->template = str_replace('{{fields}}', implode(PHP_EOL."              ", $fields) . PHP_EOL . $editAndDeleteLinks, $this->template);
 
         return $this->template;
     }
@@ -88,10 +88,10 @@ class ViewGenerator extends Generator {
 
         // Now, we'll add the edit and delete buttons.
         $editAndDelete = <<<EOT
-                    <td>
-                        {{ HTML::decode(link_to_route('admin.{$models}.edit', '<i class="fa fa-edit"></i>', \${$model}->id,  array('class' => 'btn'))) }}
-                        {{ HTML::decode(link_to_route('admin.{$models}.destroy','<i class="fa fa-trash-o"></i>', \${$model}->id, array('class' => 'btn btn-danger delete'))) }}
-                    </td>
+              <td>
+                {{ HTML::decode(link_to_route('admin.{$models}.edit', '<i class="fa fa-edit"></i>', \${$model}->id,  array('class' => 'btn'))) }}
+                {{ HTML::decode(link_to_route('admin.{$models}.destroy','<i class="fa fa-trash-o"></i>', \${$model}->id, array('class' => 'btn btn-danger delete'))) }}
+              </td>
 EOT;
 
         return array($headings, $fields, $editAndDelete);

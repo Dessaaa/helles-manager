@@ -23,7 +23,7 @@
             <tr>
               {{headings}}
             </tr>
-          </thead>   
+          </thead>
           <tbody>
             @foreach (${{models}} as ${{model}})
             <tr>
@@ -31,7 +31,7 @@
             </tr>
             @endforeach
           </tbody>
-        </table>            
+        </table>
       </div>
     </div>
   </div><!--/col-->
