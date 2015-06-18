@@ -26,5 +26,5 @@
             "Tresyz\\HellesManager\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
