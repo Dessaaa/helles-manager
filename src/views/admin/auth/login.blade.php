@@ -1,7 +1,7 @@
 @section('content')
   <div class="login-box">
     <br/>
-    {{ Form::open(array('id => 'formLogin',''class' => 'form-horizontal')) }}
+    {{ Form::open(array('id' => 'formLogin', 'class' => 'form-horizontal')) }}
       <fieldset>
         @if ($errors->has('login'))
         <div class="messages">
