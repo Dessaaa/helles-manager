@@ -137,8 +137,11 @@ $(document).ready(function() {
 		var	attrAction = $('#formLogin').attr('action');
 
         $.post(attrAction, data, function(data) {
+			data = $.parseJSON(data);
             if (data.error) {
-                location.reload();
+                $(".alert-error").html(data.error);
+				$(".messages").fadeIn();
+				//location.reload();
             }else{
 				location.href = data.url;
 			}
@@ -146,4 +149,5 @@ $(document).ready(function() {
 
         return false;
     });
+
 });

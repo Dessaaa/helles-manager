@@ -3,11 +3,9 @@
     <br/>
     {{ Form::open(array('id' => 'formLogin', 'class' => 'form-horizontal')) }}
       <fieldset>
-        @if ($errors->has('login'))
-        <div class="messages">
-          <div class="alert alert-error">{{ $errors->first('login', ':message') }}</div>
+        <div class="messages" style="display:none;">
+          <div class="alert alert-error"></div>
         </div>
-        @endif
         <div class="form-group">
           <div class="controls">
           <div class="input-group col-sm-12">

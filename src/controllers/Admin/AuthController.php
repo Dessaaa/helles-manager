@@ -28,7 +28,7 @@
  	        $user = Sentry::authenticate($credentials, $remember);
  	        if ($user) {
  	          //return Redirect::route('admin.dashboard');
- 	          $err = array('url'=> url('admin.dashboard'), 'error' => false);
+ 	          $err = array('url'=> url('admin'), 'error' => false);
  	        }
  	      } catch (\Cartalyst\Sentry\Users\LoginRequiredException $e) {
  	        $err['error'] = 'Informe o e-mail/senha';
