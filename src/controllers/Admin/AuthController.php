@@ -1,6 +1,6 @@
 <?php namespace Tresyz\HellesManager\Admin;
 
-  use Auth, BaseController, Form, Input, Redirect, Sentry, View;
+  use Auth, BaseController, Form, Input, Redirect, Sentry, View, Request, Response;
 
   class AuthController extends BaseAdminController {
 
